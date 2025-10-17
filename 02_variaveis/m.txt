@@ -1,0 +1,3 @@
+variaveis 
+memoria ram armazena nela e exibe na saiada de dados 
+
