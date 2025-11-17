@@ -2,13 +2,19 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker  #tecnologia usada para o proprio programa fazer as tabelas , aqui ele cria tudo sozinho a parde de ddl dml 
 
 from entidades import criar_tb_pessoa
+from modulo import limpar
 
 def main():
     engine = create_engine("sqlite:///01_crud/database/crud.db")
     Base = declarative_base()
     Pessoa = criar_tb_pessoa(engine, Base) 
-    session = sessionmaker(bind=engine)
+    Session = sessionmaker(bind=engine)
     session = Session()
+
+    limpar()
+    # TODO: FAZER O crud
+
+    session.close()
 
 if __name__ == "__main__":
     main()
