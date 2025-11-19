@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker  #tecnologia usada para o proprio programa fazer as tabelas , aqui ele cria tudo sozinho a parde de ddl dml 
 
 from entidades import criar_tb_pessoa
-from modulo import limpar, cadastrar
+from modulo import limpar, cadastrar, listar
 
 def main():
     engine = create_engine("sqlite:///01_crud/database/crud.db")
@@ -16,6 +16,7 @@ def main():
         print(f"{'-'*20} 🐍 CRUD DA COBRA 🐍 {'-'*20}\n")
         print("0 - Sair do programa")
         print("1 - Cadastrar nova pessoa")
+        print("2 - Listar cadastrados ")
         opcao = input("Opção desejada: ").strip()
         limpar()
         match opcao:
@@ -25,6 +26,10 @@ def main():
             case "1":
                 cadastrar(session, Pessoa)
                 continue
+            case "2":
+                listar(session,Pessoa)
+                continue
+
             case _:
                 print("Opção inválida.")
                 continue
@@ -33,6 +38,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    # para abrir o banco devo usar o f1 depois opem data base e depois o meu banco o endereço vai aparecer 
 
 """
 veja que seu erros foram 
