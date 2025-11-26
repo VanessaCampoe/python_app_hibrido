@@ -32,7 +32,8 @@ def main(page: ft.Page):
                 fit=ft.ImageFit.CONTAIN,
                 error_content=ft.Text("Não foi possivel carregar a imagem."),
                 width=800,
-                height=600
+                height=600,
+                opacity=0.4
             ),
             alignment=ft.alignment.center,
             expand=True, 
